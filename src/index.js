@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './app/containers/app';
+import Dashboard from './dashboard/containers/dashboard';
 import reportWebVitals from './reportWebVitals';
 import Root from './Root';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Root>
       <Router>
         <Route exact path='/' component={App} />
+        <Route path='/dashboard' component={Dashboard} />
       </Router>
     </Root>
   </React.StrictMode>,
