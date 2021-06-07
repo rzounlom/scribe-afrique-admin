@@ -1,15 +1,23 @@
 import App from '../containers/app';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { findByDataAttr, checkProps } from '../../test/testUtils';
+import Root from '../../Root';
+
+const defaultProps = { success: false };
 
 const setup = (props = {}) => {
-  return shallow(<App {...props} />);
+  const setupProps = { ...defaultProps, ...props };
+  return mount(
+    <Root>
+      <App {...setupProps} />
+    </Root>
+  );
 };
 
 test('renders without error', () => {
   const wrapper = setup({ success: false });
   const component = findByDataAttr(wrapper, 'component-app');
-  expect(component.exists()).toBe(true);
+  expect(component.length).toBe(1);
 });
 
 test('does not throw warnings with expected props', () => {
