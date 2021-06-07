@@ -4,11 +4,14 @@ import './index.scss';
 import App from './app/containers/app';
 import reportWebVitals from './reportWebVitals';
 import Root from './Root';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <Root>
-      <App />
+      <Router>
+        <Route exact path='/' component={App} />
+      </Router>
     </Root>
   </React.StrictMode>,
   document.getElementById('root')
