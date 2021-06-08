@@ -1,13 +1,21 @@
 import './header.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { authenticate } from '../../state/actions/authActions';
+
+import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {
-  const authButton = () => {
-    return <button>SignIn</button>;
-  };
+  const dispatch = useDispatch();
+  const authenticated = useSelector((state) => state.auth.authenticated);
+
+  const authButton = () =>
+    authenticated ? (
+      <button onClick={() => dispatch(authenticate(false))}>Sign Out</button>
+    ) : (
+      <button onClick={() => dispatch(authenticate(true))}>Sign In</button>
+    );
 
   return (
     <Router>
