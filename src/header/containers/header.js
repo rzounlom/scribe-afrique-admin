@@ -18,19 +18,17 @@ const Header = () => {
     );
 
   return (
-    <Router>
-      <nav className='header'>
-        <ul className='nav-item-containeer'>
-          <li className='nav-item'>
-            <Link to='/'>Home</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/resources'>Resources</Link>
-          </li>
-          <li className='nav-item'>{authButton()}</li>
-        </ul>
-      </nav>
-    </Router>
+    <nav className='header'>
+      <ul className='nav-item-containeer'>
+        <li className='nav-item'>
+          <Link to='/'>Home</Link>
+        </li>
+        <li className='nav-item'>
+          <Link to='/dashboard'>Dashboard</Link>
+        </li>
+        <li className='nav-item'>{authButton()}</li>
+      </ul>
+    </nav>
   );
 };
 

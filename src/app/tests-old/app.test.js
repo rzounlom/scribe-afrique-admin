@@ -1,7 +1,8 @@
+import { checkProps, findByDataAttr } from '../../test/testUtils';
+
 import App from '../containers/app';
-import { mount } from 'enzyme';
-import { findByDataAttr, checkProps } from '../../test/testUtils';
 import Root from '../../Root';
+import { mount } from 'enzyme';
 
 const defaultProps = { success: false };
 

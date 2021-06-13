@@ -6,14 +6,12 @@ import Dashboard from './dashboard/containers/dashboard';
 import reportWebVitals from './reportWebVitals';
 import Root from './Root';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import requireAuth from './hoc/requireAuth';
 
 ReactDOM.render(
   <React.StrictMode>
     <Root>
-      <Router>
-        <Route exact path='/' component={App} />
-        <Route path='/dashboard' component={Dashboard} />
-      </Router>
+      <App />
     </Root>
   </React.StrictMode>,
   document.getElementById('root')
