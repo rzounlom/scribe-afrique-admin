@@ -1,40 +1,43 @@
 import './app.scss';
 
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import Header from '../../header/containers/header';
-import Home from '../../home/containers/home';
-import Dashboard from '../../dashboard/containers/dashboard';
-import Login from '../../login/container/login';
 import {
+  Redirect,
+  Route,
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect,
 } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Dashboard from '../../dashboard/containers/dashboard';
+import Login from '../../login/container/login';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.auth.authenticated);
   useEffect(() => {});
   return (
     <Router>
-      <Route
-        exact
-        to='/'
-        render={() => (!isLoggedIn ? <Redirect to='/login' /> : <Dashboard />)}
-      />
-      <Route
-        path='/login
-      '
-        component={Login}
-      />
+      <Switch>
+        <Route
+          exact
+          path='/'
+          render={() => {
+            return !isLoggedIn ? <Redirect to='/login' /> : <Dashboard />;
+          }}
+        />
+        <Route
+          exact
+          path='/login'
+          render={() => {
+            return isLoggedIn ? <Redirect to='/' /> : <Login />;
+          }}
+        />
+      </Switch>
     </Router>
   );
 };
 
-App.propTypes = {
-  success: PropTypes.bool.isRequired,
-};
+App.propTypes = {};
 
 export default App;

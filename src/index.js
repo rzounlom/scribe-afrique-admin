@@ -1,18 +1,20 @@
+import './index.scss';
+
+import { ApolloProvider } from '@apollo/client';
+import App from './app/containers/app';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './app/containers/app';
-import Dashboard from './dashboard/containers/dashboard';
-import reportWebVitals from './reportWebVitals';
 import Root from './Root';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import requireAuth from './hoc/requireAuth';
+import { client } from './graphql/client';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root>
-      <App />
-    </Root>
+    <ApolloProvider client={client}>
+      <Root>
+        <App />
+      </Root>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
