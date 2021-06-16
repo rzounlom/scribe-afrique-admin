@@ -7,11 +7,10 @@ import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 import Dashboard from '../../dashboard/containers/dashboard';
 import Login from '../../login/container/login';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.auth.authenticated);
@@ -37,7 +36,5 @@ const App = () => {
     </Router>
   );
 };
-
-App.propTypes = {};
 
 export default App;

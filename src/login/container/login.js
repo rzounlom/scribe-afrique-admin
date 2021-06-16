@@ -1,22 +1,29 @@
 import './login.scss';
 
+import Image from '../../common/image/image';
 import LoginForm from '../components/loginForm';
-import PropTypes from 'prop-types';
 import React from 'react';
 import loginImage from '../../images/login/login-image.jpg';
 
 const Login = () => {
+  const image = {
+    height: '100%',
+    width: '100%',
+    alt: 'african woman',
+    src: loginImage,
+    camption: '',
+    effect: 'blur',
+  };
   return (
     <div className='login-container'>
       <div className='login__content'>
-        {' '}
+        <div className='login__image-container'>
+          <Image image={image} />
+        </div>
         <LoginForm />
-        <div className='login__image-container'></div>
       </div>
     </div>
   );
 };
-
-Login.propTypes = {};
 
 export default Login;
