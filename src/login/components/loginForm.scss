@@ -16,6 +16,7 @@
 
     h1 {
       font-size: 2.4rem;
+      text-align: center;
     }
 
     h2 {
@@ -51,6 +52,15 @@
       input {
         width: 70%;
         font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      h1 {
+        color: black;
+      }
+      h2 {
+        color: black;
       }
     }
 
