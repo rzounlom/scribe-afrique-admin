@@ -32,9 +32,14 @@
     align-items: center;
     height: 50%;
     width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
 
     @media (min-width: 769px) {
       display: inherit;
+      height: 100%;
     }
   }
 }

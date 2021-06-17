@@ -18,7 +18,7 @@ const Login = () => {
     <div className='login-container'>
       <div className='login__content'>
         <div className='login__image-container'>
-          <Image image={image} />
+          <img src={loginImage} alt='afrian woman' />
         </div>
         <LoginForm />
       </div>
