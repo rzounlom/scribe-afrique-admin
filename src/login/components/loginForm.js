@@ -6,9 +6,10 @@ const LoginForm = () => {
   return (
     <div className='login-form-container'>
       <div className='login-form__inputs'>
-        <h2>Login</h2>
-        <input name='username' type='text' />
-        <input nname='password' type='password' />
+        <h1>Scribe Afrique</h1>
+        <h2>Admin Login</h2>
+        <input name='username' type='text' placeholder='username' />
+        <input nname='password' type='password' placeholder='password' />
       </div>
     </div>
   );
