@@ -1,5 +1,10 @@
-import './loginForm.scss';
-
+import {
+  LoginFormContainer,
+  LoginFormHeading,
+  LoginFormInput,
+  LoginFormInputGroup,
+  LoginFormSubHeading,
+} from './styles';
 import React, { useState } from 'react';
 
 import Button from '../../common/components/button/button';
@@ -18,25 +23,25 @@ const LoginForm = ({ history }) => {
   };
 
   return (
-    <div className='login-form-container'>
-      <div className='login-form__inputs'>
-        <h1>Scribe Afrique</h1>
-        <h2>Admin Login</h2>
-        <input
+    <LoginFormContainer>
+      <LoginFormInputGroup>
+        <LoginFormHeading>Scribe Afrique</LoginFormHeading>
+        <LoginFormSubHeading>Admin Login</LoginFormSubHeading>
+        <LoginFormInput
           name='username'
           type='text'
           placeholder='username'
           onChange={onInputChange}
         />
-        <input
+        <LoginFormInput
           name='password'
           type='password'
           placeholder='password'
           onChange={onInputChange}
         />
         <Button text='Login' submit={onSubmit} />
-      </div>
-    </div>
+      </LoginFormInputGroup>
+    </LoginFormContainer>
   );
 };
 

@@ -1,4 +1,6 @@
-button.general-button {
+import styled from 'styled-components';
+
+export const MainBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,4 +32,5 @@ button.general-button {
     height: 15%;
     margin-top: 10px;
   }
-}
+`;
+MainBtn.displayName = 'MainBtn';

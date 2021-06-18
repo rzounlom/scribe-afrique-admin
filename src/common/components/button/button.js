@@ -1,14 +1,9 @@
-import './buttons.scss';
-
+import { MainBtn } from './styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const Button = ({ text, submit }) => {
-  return (
-    <button className='general-button' onClick={submit}>
-      {text}
-    </button>
-  );
+  return <MainBtn onClick={submit}>{text}</MainBtn>;
 };
 
 Button.propTypes = {
