@@ -8,9 +8,12 @@ import {
 import React, { useState } from 'react';
 
 import Button from '../../common/components/button/button';
-import { withRouter } from 'react-router-dom';
+import { loginUser } from '../../state/actions/authActions';
+import { useDispatch } from 'react-redux';
 
-const LoginForm = ({ history }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const [loginCreds, setLoginCreds] = useState({ username: '', password: '' });
   const onInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,9 +21,14 @@ const LoginForm = ({ history }) => {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(history);
-    history.push('/');
+    dispatch(loginUser(loginCreds));
+    setLoginCreds({
+      username: '',
+      password: '',
+    });
   };
+
+  const { username, password } = loginCreds;
 
   return (
     <LoginFormContainer>
@@ -30,12 +38,14 @@ const LoginForm = ({ history }) => {
         <LoginFormInput
           name='username'
           type='text'
+          value={username}
           placeholder='username'
           onChange={onInputChange}
         />
         <LoginFormInput
           name='password'
           type='password'
+          value={password}
           placeholder='password'
           onChange={onInputChange}
         />
@@ -45,4 +55,4 @@ const LoginForm = ({ history }) => {
   );
 };
 
-export default withRouter(LoginForm);
+export default LoginForm;

@@ -1,9 +1,11 @@
 import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from '../types/authTypes';
 
+const token = localStorage.getItem('token');
+
 const initialState = {
   loading: false,
-  authenticated: false,
-  token: null,
+  authenticated: token ? true : false,
+  token: token ? token : null,
 };
 
 const authReducer = (state = initialState, action) => {

@@ -53,7 +53,7 @@ export const LoginFormInput = styled.input`
   max-width: 600px;
   border: 1px solid purple;
   border-radius: 35px;
-  color: black;
+  color: white;
   padding: 3%;
   font-size: 1.5rem;
   font-weight: 400;
