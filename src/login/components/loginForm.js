@@ -39,7 +39,7 @@ const LoginForm = ({ history }) => {
           placeholder='password'
           onChange={onInputChange}
         />
-        <Button text='Login' submit={onSubmit} />
+        <Button text='Login' clickEvent={onSubmit} />
       </LoginFormInputGroup>
     </LoginFormContainer>
   );
