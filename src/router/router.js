@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 
 const RequireAuth = ({ children }) => {
   const isLoggedIn = useSelector((state) => state.auth.authenticated);
-
   if (!isLoggedIn) {
     return <Redirect to={LOGIN_URL} />;
   }
@@ -16,14 +15,24 @@ const RequireAuth = ({ children }) => {
   return children;
 };
 
-const AppRouter = () => (
-  <Switch>
-    <Route exact path={LOGIN_URL} component={Login} />
+const AppRouter = () => {
+  const isLoggedIn = useSelector((state) => state.auth.authenticated);
 
-    <RequireAuth>
-      <Route exact path={HOME_URL} component={Dashboard} />
-    </RequireAuth>
-  </Switch>
-);
+  return (
+    <Switch>
+      <Route
+        exact
+        path={LOGIN_URL}
+        render={() => {
+          return isLoggedIn ? <Redirect to={HOME_URL} /> : <Login />;
+        }}
+      />
+
+      <RequireAuth>
+        <Route exact path={HOME_URL} component={Dashboard} />
+      </RequireAuth>
+    </Switch>
+  );
+};
 
 export default AppRouter;
