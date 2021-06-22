@@ -9,22 +9,19 @@ import {
 import { navTabs } from './navTabs';
 
 const SideNav = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [menueItems, setMenuItems] = useState([]);
   const handleActive = (index) => {
-    navTabs.map((tab) => {
-      if (tab.id === index) {
-        return setActiveTab(index);
-      } else {
-        return setActiveTab(activeTab);
-      }
+    const newMenuItems = navTabs.map((tab) => {
+      return tab.id === index ? (tab.active = true) : (tab.active = false);
     });
+    setMenuItems(newMenuItems);
   };
 
   const renderTabs = navTabs.map((tab, idx) => {
     return (
       <SideNavTab
         key={idx}
-        active={tab.id === activeTab}
+        active={tab.active}
         onClick={() => handleActive(idx)}
       >
         <SideNavTabIcon>{tab.icon}</SideNavTabIcon>

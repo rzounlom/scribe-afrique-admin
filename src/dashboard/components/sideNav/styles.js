@@ -8,6 +8,7 @@ export const SideNavContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 20%;
+    max-width: 250px;
     border-right: 0.5px solid lightgray;
   }
 `;

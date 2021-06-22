@@ -8,4 +8,8 @@ export const DashboardContentContainer = styled.div`
   @media (min-width: 900px) {
     width: 85%;
   }
+
+  @media (min-width: 1400px) {
+    min-width: 87%;
+  }
 `;
