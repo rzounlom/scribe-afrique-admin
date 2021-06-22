@@ -31,7 +31,7 @@ const LoginForm = () => {
     setLoginCreds({ ...loginCreds, [name]: value });
   };
 
-  const [loginUserMutation, { data }] = useMutation(LOGIN_USER_MUTATION);
+  const [loginUserMutation] = useMutation(LOGIN_USER_MUTATION);
 
   const onSubmit = async (event) => {
     event.preventDefault();
