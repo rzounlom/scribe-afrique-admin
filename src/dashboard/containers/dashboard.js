@@ -1,9 +1,16 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { DashboardContainer } from './styles';
 import DashboardContent from '../components/dashbardContent/dashboardContent';
-import React from 'react';
 import SideNav from '../components/sideNav/sideNav';
+import { getCurrentUser } from '../../state/actions/user/userActions';
 
-const Dashboard = (props) => {
+const Dashboard = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  });
   return (
     <DashboardContainer>
       <SideNav />

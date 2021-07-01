@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 
 import Button from '../../common/components/button/button';
 import { LOGIN_USER_MUTATION } from '../../graphql/mutations/user/loginUser';
-import { loginUserAction } from '../../state/actions/authActions';
+import { loginUserAction } from '../../state/actions/auth/authActions';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/client';
 

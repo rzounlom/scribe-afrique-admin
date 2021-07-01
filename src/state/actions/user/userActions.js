@@ -1,0 +1,33 @@
+import {
+  GET_CURRENT_USER_FAIL,
+  GET_CURRENT_USER_REQUEST,
+  GET_CURRENT_USER_SUCCESS,
+} from '../../types/userTypes';
+
+import { ME_QUERY } from '../../../graphql/queries/user/userQueries';
+import { client } from '../../../graphql/client';
+
+export const getCurrentUser = () => async (dispatch) => {
+  dispatch({
+    type: GET_CURRENT_USER_REQUEST,
+  });
+
+  try {
+    const {
+      data: { me },
+    } = await client.query({
+      query: ME_QUERY,
+    });
+    console.log(me);
+    await dispatch({
+      type: GET_CURRENT_USER_SUCCESS,
+      payload: me,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: GET_CURRENT_USER_FAIL,
+      payload: error.message,
+    });
+  }
+};
