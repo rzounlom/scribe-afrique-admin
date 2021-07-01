@@ -5,20 +5,26 @@ import { FiUsers } from 'react-icons/fi';
 import { MdWeb } from 'react-icons/md';
 
 export const navTabs = [
-  { id: 0, title: 'Profile', icon: <CgProfile />, role: 'ADMIN', active: true },
   {
-    id: 1,
+    id: 0,
     title: 'Posts',
     icon: <FaRegNewspaper />,
     role: 'ADMIN',
-    active: false,
+    active: true,
   },
-  { id: 2, title: 'Preview', icon: <MdWeb />, role: 'ADMIN', active: false },
+  { id: 1, title: 'Preview', icon: <MdWeb />, role: 'ADMIN', active: false },
   {
-    id: 3,
+    id: 2,
     title: 'Users',
     icon: <FiUsers />,
     role: 'SUPER_ADMIN',
+    active: false,
+  },
+  {
+    id: 3,
+    title: 'Settings',
+    icon: <CgProfile />,
+    role: 'ADMIN',
     active: false,
   },
   {
