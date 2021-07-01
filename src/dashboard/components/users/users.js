@@ -3,7 +3,7 @@ import React from 'react';
 import { UsersContainer } from './styles';
 
 const Users = (props) => {
-  return <UsersContainer>Profile</UsersContainer>;
+  return <UsersContainer>Users</UsersContainer>;
 };
 
 Users.propTypes = {};

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Preview = (props) => {
-  return <PreviewContainer>Profile</PreviewContainer>;
+  return <PreviewContainer>Preview</PreviewContainer>;
 };
 
 Preview.propTypes = {};

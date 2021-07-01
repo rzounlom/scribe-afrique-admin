@@ -18,7 +18,6 @@ export const getCurrentUser = () => async (dispatch) => {
     } = await client.query({
       query: ME_QUERY,
     });
-    console.log(me);
     await dispatch({
       type: GET_CURRENT_USER_SUCCESS,
       payload: me,

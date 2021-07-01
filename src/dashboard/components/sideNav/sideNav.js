@@ -8,6 +8,7 @@ import {
 
 import { logoutUserAction } from '../../../state/actions/auth/authActions';
 import { navTabs } from './navTabs';
+import { setCurrentTabAction } from '../../../state/actions/dashboard/dashboardActions';
 import { useDispatch } from 'react-redux';
 
 const SideNav = () => {
@@ -15,9 +16,9 @@ const SideNav = () => {
 
   const [menueItems, setMenuItems] = useState([]);
 
-  // useEffect(() => {
-
-  // }, []);
+  useEffect(() => {
+    dispatch(setCurrentTabAction(0));
+  }, [dispatch]);
 
   const handleActive = (index) => {
     const newMenuItems = navTabs.map((tab) => {
@@ -31,6 +32,7 @@ const SideNav = () => {
       return tab.id === 0 ? (tab.active = true) : (tab.active = false);
     });
     setMenuItems(newMenuItems);
+    dispatch(setCurrentTabAction(0));
   };
 
   const renderTabs = navTabs.map((tab, idx) => {
@@ -40,8 +42,10 @@ const SideNav = () => {
         active={tab.active}
         onClick={() => {
           handleActive(idx);
+          dispatch(setCurrentTabAction(tab.id));
           if (tab.title === 'Logout') {
             dispatch(logoutUserAction());
+            dispatch(setCurrentTabAction(0));
             resetTabs();
           }
         }}
