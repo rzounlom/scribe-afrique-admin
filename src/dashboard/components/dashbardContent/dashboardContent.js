@@ -3,7 +3,7 @@ import Posts from '../posts/posts';
 import Preview from '../preview/preview';
 import React from 'react';
 import Settings from '../settings/settings';
-import ToggleNav from '../toggleNav/toggleNav';
+import TemporaryDrawer from '../toggleNav/toggleNav';
 import Users from '../users/users';
 import { useSelector } from 'react-redux';
 
@@ -26,7 +26,7 @@ const DashboardContent = () => {
 
   return (
     <DashboardContentContainer>
-      <ToggleNav />
+      <TemporaryDrawer />
       {renderContent()}
     </DashboardContentContainer>
   );

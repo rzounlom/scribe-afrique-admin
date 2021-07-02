@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const SideNavContainer = styled.div`
   display: none;
 
+  @media (min-width: 320px) {
+    display: ${({ open }) => (open ? 'inherit' : 'none')};
+    width: 100%;
+  }
+
   @media (min-width: 900px) {
     display: inherit;
     display: flex;

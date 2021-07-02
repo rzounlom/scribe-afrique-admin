@@ -11,10 +11,10 @@ import { navTabs } from './navTabs';
 import { setCurrentTabAction } from '../../../state/actions/dashboard/dashboardActions';
 import { useDispatch } from 'react-redux';
 
-const SideNav = () => {
+const SideNav = ({ open }) => {
   const dispatch = useDispatch();
 
-  const [menueItems, setMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
     dispatch(setCurrentTabAction(0));
@@ -56,7 +56,7 @@ const SideNav = () => {
     );
   });
 
-  return <SideNavContainer>{renderTabs}</SideNavContainer>;
+  return <SideNavContainer open={open}>{renderTabs}</SideNavContainer>;
 };
 
 export default SideNav;
