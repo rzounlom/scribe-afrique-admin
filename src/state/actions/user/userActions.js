@@ -6,6 +6,7 @@ import {
 
 import { ME_QUERY } from '../../../graphql/queries/user/userQueries';
 import { client } from '../../../graphql/client';
+import { logoutUserAction } from '../../actions/auth/authActions';
 
 export const getCurrentUser = () => async (dispatch) => {
   dispatch({
@@ -28,5 +29,6 @@ export const getCurrentUser = () => async (dispatch) => {
       type: GET_CURRENT_USER_FAIL,
       payload: error.message,
     });
+    dispatch(logoutUserAction());
   }
 };

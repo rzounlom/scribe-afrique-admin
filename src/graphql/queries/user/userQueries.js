@@ -6,6 +6,15 @@ export const ME_QUERY = gql`
       id
       username
       role
+      posts {
+        author {
+          id
+        }
+        title
+        description
+        image
+        published
+      }
     }
   }
 `;

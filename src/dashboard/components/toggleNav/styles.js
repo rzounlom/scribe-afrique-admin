@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ToggleNavContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   height: 5vh;
   width: 100%;
   svg {

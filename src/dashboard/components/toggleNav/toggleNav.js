@@ -53,9 +53,7 @@ const ToggleNav = () => {
     <ToggleNavContainer>
       {['left'].map((anchor) => (
         <Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <GiHamburgerMenu />
-          </Button>
+          <GiHamburgerMenu onClick={toggleDrawer(anchor, true)} />
           <Drawer
             anchor={anchor}
             open={state[anchor]}

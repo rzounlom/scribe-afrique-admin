@@ -24,14 +24,14 @@ export const SideNavTab = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 0.5px solid purple;
-  color: ${({ active }) => (active ? 'white' : 'purple')};
+  border-bottom: 0.5px solid aqua;
+  color: ${({ active }) => (active ? 'white' : 'aqua')};
   font-weight: 400;
   transition: all 0.25s ease-in-out;
-  background-color: ${({ active }) => (active ? 'purple' : 'white')};
+  background-color: ${({ active }) => (active ? 'aqua' : 'white')};
 
   &:hover {
-    background: purple;
+    background: aqua;
     color: white;
     cursor: pointer;
   }
