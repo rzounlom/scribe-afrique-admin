@@ -17,10 +17,9 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({ post }) => {
+const MediaCard = ({ post, type, setRenderContentVal }) => {
   const classes = useStyles();
   const { image, title, description } = post;
-  console.log('post: ', post);
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -40,10 +39,18 @@ const MediaCard = ({ post }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size='small' color='primary'>
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => setRenderContentVal(1)}
+        >
           View
         </Button>
-        <Button size='small' color='primary'>
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => setRenderContentVal(2)}
+        >
           Edit
         </Button>
         <Button size='small' color='primary'>
@@ -56,6 +63,7 @@ const MediaCard = ({ post }) => {
 
 MediaCard.propTypes = {
   post: PropTypes.object,
+  type: PropTypes.string,
 };
 
 export default MediaCard;

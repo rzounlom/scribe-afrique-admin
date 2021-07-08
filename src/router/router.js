@@ -1,11 +1,10 @@
 import { HOME_URL, LOGIN_URL } from './urls';
-import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 import Dashboard from '../dashboard/containers/dashboard';
 import Login from '../login/container/login';
-import { getCurrentUser } from '../state/actions/user/userActions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const RequireAuth = ({ children }) => {
   const isLoggedIn = useSelector((state) => state.auth.authenticated);
