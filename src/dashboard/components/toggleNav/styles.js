@@ -8,7 +8,7 @@ export const ToggleNavContainer = styled.div`
   width: 100%;
   svg {
     font-size: 2rem;
-    color: purple;
+    color: darkgray;
   }
   @media (min-width: 900px) {
     display: none;
