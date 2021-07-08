@@ -25,13 +25,13 @@ export const SideNavTab = styled.div`
   justify-content: space-around;
   align-items: center;
   border-bottom: 0.5px solid darkgray;
-  color: ${({ active }) => (active ? 'white' : 'darkgray')};
+  color: ${({ active }) => (active ? 'white' : 'purple')};
   font-weight: 400;
   transition: all 0.25s ease-in-out;
-  background-color: ${({ active }) => (active ? 'darkgray' : 'white')};
+  background-color: ${({ active }) => (active ? 'purple' : 'white')};
 
   &:hover {
-    background: darkgray;
+    background: purple;
     color: white;
     cursor: pointer;
   }

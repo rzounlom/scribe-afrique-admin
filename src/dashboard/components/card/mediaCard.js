@@ -7,6 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { setCurrentPost } from '../../../state/actions/post/postActions';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +20,7 @@ const useStyles = makeStyles({
 });
 
 const MediaCard = ({ post, type, setRenderContentVal }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const { image, title, description } = post;
   return (
@@ -42,18 +45,30 @@ const MediaCard = ({ post, type, setRenderContentVal }) => {
         <Button
           size='small'
           color='primary'
-          onClick={() => setRenderContentVal(1)}
+          onClick={() => {
+            setRenderContentVal(1);
+            dispatch(setCurrentPost(post));
+          }}
         >
           View
         </Button>
         <Button
           size='small'
           color='primary'
-          onClick={() => setRenderContentVal(2)}
+          onClick={() => {
+            setRenderContentVal(2);
+            dispatch(setCurrentPost(post));
+          }}
         >
           Edit
         </Button>
-        <Button size='small' color='primary'>
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => {
+            dispatch(setCurrentPost(post));
+          }}
+        >
           Delete
         </Button>
       </CardActions>
