@@ -81,7 +81,7 @@ const LoginForm = () => {
           onChange={onInputChange}
         />
         {error && <span style={{ color: 'red' }}>{error}</span>}
-        <Button text='Login' clickEvent={onSubmit} />
+        <Button text='Login' type='login' clickEvent={onSubmit} />
       </LoginFormInputGroup>
     </LoginFormContainer>
   );
