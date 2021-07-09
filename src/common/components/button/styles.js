@@ -7,10 +7,10 @@ export const MainBtn = styled.button`
   height: 12%;
   width: 50%;
   border-radius: 35px;
-  background-color: rgba(128, 0, 128, 0.5);
+  background-color: rgb(145, 70, 172);
   color: white;
   font-size: 1.2rem;
-  border: 1px solid rgba(128, 0, 128, 0.5);
+  border: 1px solid rgb(145, 70, 172);
   transition: all 0.5s ease-in-out;
   &:active,
   &:focus {
@@ -19,7 +19,7 @@ export const MainBtn = styled.button`
   &:hover {
     cursor: pointer;
     border: 1px solid lightgrey;
-    background-color: purple;
+    background-color: rgb(145, 70, 172);
     color: white;
   }
 

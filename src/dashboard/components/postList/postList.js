@@ -12,7 +12,7 @@ const PostList = ({ setRenderContentVal, refetchPosts, data }) => {
         <Grid key={post.id} item xs={12} md={6} lg={4}>
           <MediaCard
             post={post}
-            type='post'
+            type='postList'
             setRenderContentVal={setRenderContentVal}
           />
         </Grid>

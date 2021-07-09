@@ -14,7 +14,7 @@ export const SideNavContainer = styled.div`
     flex-direction: column;
     width: 20%;
     max-width: 250px;
-    border-right: 0.5px solid darkgray;
+    border-right: 0.2px solid lightgray;
   }
 `;
 
@@ -24,14 +24,15 @@ export const SideNavTab = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 0.5px solid darkgray;
-  color: ${({ active }) => (active ? 'white' : 'purple')};
+  border-bottom: 0.2px solid lightgray;
+  color: ${({ active }) => (active ? 'white' : 'rgb(145, 70, 172)')};
   font-weight: 400;
   transition: all 0.25s ease-in-out;
-  background-color: ${({ active }) => (active ? 'purple' : 'white')};
+  background: ${({ active }) => (active ? 'rgb(145, 70, 172)' : 'white')};
 
   &:hover {
-    background: purple;
+    background: rgb(145, 70, 172);
+
     color: white;
     cursor: pointer;
   }
