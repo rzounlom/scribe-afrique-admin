@@ -27,7 +27,6 @@ export const ViewPostTitle = styled.div`
 `;
 
 export const ViewPostDescription = styled.div`
-  /* border: 0.2px solid lightgrey; */
   min-height: 15%;
   width: 100%;
   font-size: 1.5rem;
