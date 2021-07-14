@@ -54,3 +54,12 @@ export const CreatePostInput = styled.input`
   height: 70%;
   width: 100%;
 `;
+
+export const CreatePostButtonContainer = styled.div`
+  height: 10%;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+`;

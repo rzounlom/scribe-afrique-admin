@@ -39,14 +39,12 @@ export const CreatePostButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 12%;
-  max-height: 50px;
+  height: 60%;
   width: 50%;
-  max-width: 200px;
+  max-width: 250px;
   border-radius: 35px;
   background-color: rgb(145, 70, 172);
   color: white;
-  font-size: 1.2rem;
   border: 1px solid rgb(145, 70, 172);
   transition: all 0.5s ease-in-out;
   &:active,
@@ -61,12 +59,16 @@ export const CreatePostButton = styled.button`
   }
 
   @media (min-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   @media (min-width: 900px) {
-    width: 45%;
-    height: 15%;
+    width: 60%;
+    height: 90%;
     margin-top: 10px;
+  }
+
+  @media (max-width: 414px) {
+    height: 80%;
   }
 `;

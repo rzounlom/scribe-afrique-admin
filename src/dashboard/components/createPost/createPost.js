@@ -1,4 +1,5 @@
 import {
+  CreatePostButtonContainer,
   CreatePostContainer,
   CreatePostEditorContainer,
   CreatePostForm,
@@ -10,7 +11,7 @@ import React, { useState } from 'react';
 import Button from '../../../common/components/button/button';
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import PostEditor from '../postEditor/postEditor';
 import TextField from '@material-ui/core/TextField';
 
 const CreatePost = () => {
@@ -22,7 +23,7 @@ const CreatePost = () => {
     title: '',
     published: false,
     image: '',
-    descrption: '',
+    description: '',
   });
 
   const handleInputChange = (event) => {
@@ -36,7 +37,7 @@ const CreatePost = () => {
     event.preventDefault();
     console.log('createPostSubmit: ', formInputs);
   };
-  const { title, image, published, descrption } = formInputs;
+  const { title, image, published, description } = formInputs;
   return (
     <CreatePostContainer>
       <CreatePostForm>
@@ -84,8 +85,12 @@ const CreatePost = () => {
             </Grid>
           </Grid>
         </CreatePostInputContainer>
-        <CreatePostEditorContainer>Editor Container</CreatePostEditorContainer>
-        <Button text='Create Post' type='createPost' clickEvent={onSubmit} />
+        <CreatePostEditorContainer>
+          <PostEditor />
+        </CreatePostEditorContainer>
+        <CreatePostButtonContainer>
+          <Button text='Create Post' type='createPost' clickEvent={onSubmit} />
+        </CreatePostButtonContainer>
       </CreatePostForm>
     </CreatePostContainer>
   );
