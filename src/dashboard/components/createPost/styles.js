@@ -61,7 +61,7 @@ export const CreatePostButtonContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid black;
+  margin-bottom: 10px;
   @media (max-width: 768px) {
     height: 13%;
   }

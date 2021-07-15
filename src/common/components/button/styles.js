@@ -41,9 +41,10 @@ export const CreatePostButton = styled.button`
   align-items: center;
   height: 60%;
   width: 50%;
-  max-width: 270px;
+  max-width: 300px;
   max-height: 75px;
   border-radius: 35px;
+  font-weight: 500;
   background-color: rgb(145, 70, 172);
   color: white;
   border: 1px solid rgb(145, 70, 172);
@@ -61,6 +62,7 @@ export const CreatePostButton = styled.button`
 
   @media (min-width: 768px) {
     font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   @media (min-width: 900px) {
@@ -74,5 +76,6 @@ export const CreatePostButton = styled.button`
     width: 100%;
     min-width: 250px;
     max-width: 100%;
+    font-size: 1.7rem;
   }
 `;
