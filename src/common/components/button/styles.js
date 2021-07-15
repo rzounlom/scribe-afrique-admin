@@ -41,7 +41,8 @@ export const CreatePostButton = styled.button`
   align-items: center;
   height: 60%;
   width: 50%;
-  max-width: 250px;
+  max-width: 270px;
+  max-height: 75px;
   border-radius: 35px;
   background-color: rgb(145, 70, 172);
   color: white;
@@ -70,5 +71,8 @@ export const CreatePostButton = styled.button`
 
   @media (max-width: 414px) {
     height: 80%;
+    width: 100%;
+    min-width: 250px;
+    max-width: 100%;
   }
 `;

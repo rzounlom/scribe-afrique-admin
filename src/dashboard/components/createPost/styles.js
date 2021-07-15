@@ -30,7 +30,7 @@ export const CreatePostEditorContainer = styled.div`
 `;
 
 export const CreatePostInputContainer = styled.div`
-  height: 25%;
+  height: 30%;
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -62,4 +62,11 @@ export const CreatePostButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   border: 1px solid black;
+  @media (max-width: 768px) {
+    height: 13%;
+  }
+
+  @media (max-width: 320px) {
+    height: 15%;
+  }
 `;
