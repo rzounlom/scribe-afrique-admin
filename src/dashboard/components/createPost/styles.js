@@ -20,13 +20,19 @@ export const CreatePostForm = styled.div`
 `;
 
 export const CreatePostEditorContainer = styled.div`
-  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 55%;
   width: 90%;
-  border: 1px solid black;
-
   @media (max-width: 414px) {
     height: 40%;
   }
+`;
+
+export const CreatePostEditorLebel = styled.div`
+  height: 5%;
+  color: rgba(59, 59, 59, 0.7);
 `;
 
 export const CreatePostInputContainer = styled.div`

@@ -2,6 +2,7 @@ import {
   CreatePostButtonContainer,
   CreatePostContainer,
   CreatePostEditorContainer,
+  CreatePostEditorLebel,
   CreatePostForm,
   CreatePostInputContainer,
   CreatePostInputGroup,
@@ -86,6 +87,7 @@ const CreatePost = () => {
           </Grid>
         </CreatePostInputContainer>
         <CreatePostEditorContainer>
+          <CreatePostEditorLebel>Description</CreatePostEditorLebel>
           <PostEditor />
         </CreatePostEditorContainer>
         <CreatePostButtonContainer>

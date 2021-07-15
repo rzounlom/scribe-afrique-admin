@@ -1,27 +1,19 @@
-import { Editor, EditorState, RichUtils } from 'draft-js';
-import React, { useState } from 'react';
+import 'draft-js/dist/Draft.css';
+
+import { Editor, EditorState } from 'draft-js';
+
+import { PostEditorContainer } from './styles';
+import React from 'react';
 
 const PostEditor = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const handleChange = (editorState) => setEditorState(editorState);
-
-  const handleKeyCommand = (command, editorState) => {
-    const newState = RichUtils.handleKeyCommand(editorState, command);
-
-    if (newState) {
-      this.onChange(newState);
-      return 'handled';
-    }
-
-    return 'not-handled';
-  };
+  const [editorState, setEditorState] = React.useState(() =>
+    EditorState.createEmpty()
+  );
 
   return (
-    <Editor
-      editorState={editorState}
-      handleKeyCommand={handleKeyCommand}
-      onChange={handleChange}
-    />
+    <PostEditorContainer>
+      <Editor editorState={editorState} onChange={setEditorState} />
+    </PostEditorContainer>
   );
 };
 
