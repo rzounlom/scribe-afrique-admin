@@ -25,14 +25,24 @@ export const CreatePostEditorContainer = styled.div`
   justify-content: space-between;
   height: 55%;
   width: 90%;
+  overflow-y: auto;
   @media (max-width: 414px) {
-    height: 40%;
+    height: 65%;
+  }
+
+  @media (max-width: 320px) {
+    height: 75%;
   }
 `;
 
 export const CreatePostEditorLebel = styled.div`
   height: 5%;
   color: rgba(59, 59, 59, 0.7);
+  margin-bottom: 5px;
+  @media (max-width: 320px) {
+    height: 10%;
+    margin-top: 10px;
+  }
 `;
 
 export const CreatePostInputContainer = styled.div`
