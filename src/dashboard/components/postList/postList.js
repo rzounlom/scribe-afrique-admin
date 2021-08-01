@@ -9,7 +9,7 @@ const PostList = ({ setRenderContentVal, refetchPosts, data }) => {
   const renderPosts = () => {
     return data ? (
       data.userPosts.map((post) => (
-        <Grid key={post.id} item xs={12} md={6} lg={4}>
+        <Grid key={post.id} item xs={12} md={6} lg={6} xl={4}>
           <MediaCard
             post={post}
             type='postList'

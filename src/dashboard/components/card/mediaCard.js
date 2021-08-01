@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { purple } from '@material-ui/core/colors';
 import { setCurrentPost } from '../../../state/actions/post/postActions';
+import { setMessage } from '../../../state/actions/dashboard/dashboardActions';
 import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({

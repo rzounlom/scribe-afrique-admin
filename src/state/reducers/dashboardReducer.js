@@ -1,6 +1,13 @@
-import { SET_CURRENT_TAB } from '../types/dashboardTypes';
+import {
+  REMOVE_MESSAGE,
+  SET_CURRENT_TAB,
+  SET_MESSAGE,
+} from '../types/dashboardTypes';
 const initialState = {
   currentTab: 0,
+  messageShow: false,
+  alertMessage: null,
+  alertType: null,
 };
 
 const dashboardReducer = (state = initialState, action) => {
@@ -11,6 +18,20 @@ const dashboardReducer = (state = initialState, action) => {
       return {
         ...state,
         currentTab: payload,
+      };
+    case SET_MESSAGE:
+      return {
+        ...state,
+        messageShow: true,
+        alertMessage: payload.message,
+        alertType: payload.type,
+      };
+    case REMOVE_MESSAGE:
+      return {
+        ...state,
+        messageShow: false,
+        alertMessage: null,
+        alertType: null,
       };
 
     default:

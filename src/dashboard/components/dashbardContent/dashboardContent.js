@@ -1,3 +1,4 @@
+import Alert from '../../../common/components/alert/alert';
 import { DashboardContentContainer } from './styles';
 import Posts from '../posts/posts';
 import Preview from '../preview/preview';
@@ -26,6 +27,7 @@ const DashboardContent = () => {
 
   return (
     <DashboardContentContainer>
+      <Alert />
       <ToggleNav />
       {renderContent()}
     </DashboardContentContainer>

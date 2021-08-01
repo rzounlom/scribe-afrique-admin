@@ -9,17 +9,18 @@ import {
 } from './styles';
 import React, { useState } from 'react';
 
-import Alert from '../../../common/components/alert/alert';
 import Button from '../../../common/components/button/button';
 import { CREATE_POST_MUTATION } from '../../../graphql/mutations/post/createPost';
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
 import PostEditor from '../postEditor/postEditor';
 import TextField from '@material-ui/core/TextField';
+import { setMessage } from '../../../state/actions/dashboard/dashboardActions';
+import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/client';
 
 const CreatePost = () => {
-  const [alert, setAlert] = useState(true);
+  const dispatch = useDispatch();
   const [createPostMutation] = useMutation(CREATE_POST_MUTATION);
   const publishOptions = [
     { value: 'false', label: 'Unpublished' },
@@ -33,7 +34,7 @@ const CreatePost = () => {
   });
 
   const handleAlert = () => {
-    setAlert(!alert);
+    dispatch(setMessage('success', 'All fields must be filled  out'));
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -68,12 +69,6 @@ const CreatePost = () => {
 
   return (
     <CreatePostContainer>
-      <Alert
-        severity='error'
-        open={alert}
-        handleAlert={handleAlert}
-        message='This is a test'
-      />
       <CreatePostForm>
         <CreatePostInputContainer>
           <Grid container>

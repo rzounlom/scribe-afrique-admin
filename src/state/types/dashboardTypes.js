@@ -1,1 +1,3 @@
 export const SET_CURRENT_TAB = 'SET_CURRENT_TAB';
+export const SET_MESSAGE = 'SET_MESSAGE';
+export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';

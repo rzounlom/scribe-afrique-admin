@@ -1,40 +1,38 @@
-import { AlertContainer } from './styles';
-import PropTypes from 'prop-types';
+import { AlertAction, AlertContainer, AlertMessageContainer } from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { BiErrorCircle } from 'react-icons/bi';
+import { FiInfo } from 'react-icons/fi';
 import React from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import { makeStyles } from '@material-ui/core/styles';
+import { removeMessage } from '../../../state/actions/dashboard/dashboardActions';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
-const Alert = ({ open, handleAlert, severity, message }) => {
-  const classes = useStyles();
-  const vertical = 'top';
-  const horizontal = 'center';
-  return (
-    <div className={classes.root}>
-      <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={open}
-        severity={severity}
-        onClose={handleAlert}
-        message={message}
-        key={vertical + horizontal}
-      />
-    </div>
+const Alert = () => {
+  const dispatch = useDispatch();
+  const { messageShow, alertMessage, alertType } = useSelector(
+    (state) => state.dashboard
   );
-};
-
-Alert.propTypes = {
-  severity: PropTypes.string.isRequired,
-  open: PropTypes.bool.isRequired,
-  message: PropTypes.string.isRequired,
-  handleAlert: PropTypes.func.isRequired,
+  const renderAlertIcon = () => {
+    switch (alertType) {
+      case 'error':
+        return <BiErrorCircle />;
+      case 'success':
+        return <AiOutlineCheckCircle />;
+      case 'info':
+        return <FiInfo />;
+      default:
+        return <BiErrorCircle />;
+    }
+  };
+  return (
+    <AlertContainer show={messageShow} type={alertType}>
+      <AlertMessageContainer>
+        {renderAlertIcon()}
+        {alertMessage}
+      </AlertMessageContainer>
+      <AlertAction onClick={() => dispatch(removeMessage())}>X</AlertAction>
+    </AlertContainer>
+  );
 };
 
 export default Alert;
