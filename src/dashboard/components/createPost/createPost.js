@@ -14,17 +14,19 @@ import { CREATE_POST_MUTATION } from '../../../graphql/mutations/post/createPost
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
 import PostEditor from '../postEditor/postEditor';
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { setMessage } from '../../../state/actions/dashboard/dashboardActions';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/client';
+import { withRouter } from 'react-router';
 
-const CreatePost = () => {
+const CreatePost = ({ setRenderContentVal, refetchPosts }) => {
   const dispatch = useDispatch();
   const [createPostMutation] = useMutation(CREATE_POST_MUTATION);
   const publishOptions = [
-    { value: 'false', label: 'Unpublished' },
-    { value: 'true', label: 'Published' },
+    { value: false, label: 'Unpublished' },
+    { value: true, label: 'Published' },
   ];
   const [formInputs, setFormInputs] = useState({
     title: '',
@@ -34,34 +36,38 @@ const CreatePost = () => {
   });
 
   const handleAlert = () => {
-    dispatch(setMessage('success', 'All fields must be filled  out'));
+    dispatch(setMessage('error', 'All fields must be filled  out'));
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormInputs({ ...formInputs, [name]: value });
-    console.log(formInputs);
   };
 
   const { title, image, published, description } = formInputs;
-  const formValidation =
-    published && image && title && description && description;
+  const formValidation = image && title && description;
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    console.log('formValidation', formValidation);
     if (!formValidation) {
       handleAlert();
       return;
     }
     try {
       const {
-        data: {
-          createPost: { message },
+        data: { createPost: message },
+      } = await createPostMutation({
+        variables: {
+          title,
+          image,
+          description: JSON.stringify(description),
+          published,
         },
-      } = createPostMutation({
-        variables: formInputs,
       });
-      console.log('createPostSubmit: ', formInputs);
-      console.log('message: ', message);
+      await refetchPosts('all');
+      await dispatch(setMessage('success', message.message));
+
+      await setRenderContentVal(0);
     } catch (error) {
       console.log(error);
     }
@@ -126,6 +132,8 @@ const CreatePost = () => {
   );
 };
 
-CreatePost.propTypes = {};
+CreatePost.propTypes = {
+  setRenderContentVal: PropTypes.func,
+};
 
-export default CreatePost;
+export default withRouter(CreatePost);

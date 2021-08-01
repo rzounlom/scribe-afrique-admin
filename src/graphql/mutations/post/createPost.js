@@ -7,7 +7,7 @@ export const CREATE_POST_MUTATION = gql`
     $published: Boolean!
     $image: String!
   ) {
-    loginUser(
+    createPost(
       data: {
         title: $title
         description: $description

@@ -35,7 +35,12 @@ const Posts = () => {
       case 2:
         return <EditPost setRenderContentVal={setRenderContentVal} />;
       case 3:
-        return <CreatePost setRenderContentVal={setRenderContentVal} />;
+        return (
+          <CreatePost
+            setRenderContentVal={setRenderContentVal}
+            refetchPosts={refetchPosts}
+          />
+        );
       default:
         return (
           <PostList

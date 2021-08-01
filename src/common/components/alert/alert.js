@@ -2,7 +2,7 @@ import { AlertAction, AlertContainer, AlertMessageContainer } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AiOutlineCheckCircle } from 'react-icons/ai';
-import { BiErrorCircle } from 'react-icons/bi';
+import { BiError } from 'react-icons/bi';
 import { FiInfo } from 'react-icons/fi';
 import React from 'react';
 import { removeMessage } from '../../../state/actions/dashboard/dashboardActions';
@@ -15,13 +15,13 @@ const Alert = () => {
   const renderAlertIcon = () => {
     switch (alertType) {
       case 'error':
-        return <BiErrorCircle />;
+        return <BiError />;
       case 'success':
         return <AiOutlineCheckCircle />;
       case 'info':
         return <FiInfo />;
       default:
-        return <BiErrorCircle />;
+        return <BiError />;
     }
   };
   return (
